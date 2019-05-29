@@ -1,20 +1,63 @@
- 
+<router-outlet>
+  <a routerLink="Logo">
+   
+  </a>
+</router-outlet>
+<app-logo></app-logo>
 
-<br>
-<br>
-<a>
-etidfdgd
-  ro
-</a>
-<form>
-<label>שם משתמש</label>
-<br>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
-<input type="text" >
-<br>
-<br>
+<script src="https://code.jquery.com/jquery-2.1.0.min.js" ></script>
+<!-- <div id="formWrapper"> -->
 
-<label>הכנס סיסמא</label>
-<br>
-<input type="password" > 
-</form>
+<div id="form">
+<div class="logo">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 458.8 167.5" enable-background="new 0 0 458.8 167.5" xml:space="preserve">
+<g>
+</g>
+</svg>
+</div>
+		<div class="form-item">
+			<p class="formLabel">Email</p>
+			<input type="email" name="email" id="email" class="form-style" autocomplete="off"/>
+		</div>
+		<div class="form-item">
+			<p class="formLabel">Password</p>
+			<input type="password" name="password" id="password" class="form-style" />
+			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
+			<!-- <p><a href="#" ><small>Forgot Password ?</small></a></p>	 -->
+		</div>
+		<div class="form-item">
+		<!-- <p class="pull-left"><a href="#"><small>Register</small></a></p> -->
+    <input type="submit" class="login pull-right" value="משתמש רשום">
+    <input type="submit" class="login pull-right" value="משתמש חדש">
+    <!-- <input type="submit" class="login pull-center" value="מנהל"> -->
+
+    
+		<div class="clear-fix"></div>
+		</div>
+</div>
+
+<script>
+  $(document).ready(function(){
+	var formInputs = $('input[type="email"],input[type="password"]');
+	formInputs.focus(function() {
+       $(this).parent().children('p.formLabel').addClass('formTop');
+       $('div#formWrapper').addClass('darken-bg');
+       $('div.logo').addClass('logo-active');
+	});
+	formInputs.focusout(function() {
+		if ($.trim($(this).val()).length == 0){
+		$(this).parent().children('p.formLabel').removeClass('formTop');
+		}
+		$('div#formWrapper').removeClass('darken-bg');
+		$('div.logo').removeClass('logo-active');
+	});
+	$('p.formLabel').click(function(){
+		 $(this).parent().children('.form-style').focus();
+	});
+});
+</script>
